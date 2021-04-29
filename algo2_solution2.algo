@@ -1,0 +1,31 @@
+ALGORITHM hash_distinct_elements
+VAR
+set1,set2: ARRAY_OF INTEGER [50];
+htab : HASH_TABLE<INTEGER,INTEGER>;
+i,j,count : INTEGER:=0;
+
+BEGIN 
+FOR i FROM 0 TO set1.length-1 STEP 1 DO
+ IF (htab.lookup(set1[i]=== TRUE)) THEN 
+ count:= htab.get(set1[i])
+ htab.insert(<set1[i], count+1>)
+ELSE
+ htab.insert(<set1[i], 1>)
+ END_IF
+ END_FOR
+
+
+ FOR j FROM 0 TO set2.length-1 STEP 1 DO
+ IF (htab.lookup(set2[j]=== TRUE)) THEN 
+ count:= htab.get(set2[j])
+ htab.insert(<set2[j], count+1>)
+ELSE
+ htab.insert(<set2[j], 1>)
+ END_IF
+ END_FOR
+
+ IF count>1 THEN
+ sum_diff = sum_diff+ set1[i]*2
+ END IF 
+
+ END

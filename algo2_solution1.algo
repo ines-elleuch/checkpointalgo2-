@@ -1,0 +1,67 @@
+ALGORITHM distinct_elements
+VAR
+set1 , set2 : ARRAY_OF INTEGER[50];
+i,j:INTEGER:=0;
+sum_diff := 0;
+
+
+BEGIN 
+
+FOR i from 0 to set1.length-1 STEP 1 DO 
+ FOR j from 0 to set2.length-1 STEP 1 DO
+
+  IF ((set1[i]<>set2[j])) THEN
+  difference = TRUE;
+  ELSE difference = FALSE; BREAK
+  END_IF
+  
+  IF (difference = TRUE) THEN
+  sum_diff = sum_diff + set1[i]
+  END_IF
+
+ END_FOR
+END_FOR
+write (sum_diff)
+
+
+FOR j from 0 to set2.length-1 STEP 1 DO 
+ FOR i from 0 to set1.length-1 STEP 1 DO
+
+  IF ((set2[j]<>set1[i])) THEN
+  difference = TRUE;
+  ELSE difference = FALSE; BREAK
+  END_IF
+  
+  IF (difference = TRUE) THEN
+  sum_diff = sum_diff + set2[i]
+  END_IF
+
+ END_FOR
+END_FOR
+write (sum_diff)
+ END
+
+
+
+
+ ALGORITHM overlapping_elements
+VAR
+set1 , set2 : ARRAY_OF INTEGER[50];
+i,j:INTEGER:=0;
+sum_sim := 0;
+
+
+BEGIN
+FOR i from 0 to set1.length-1 STEP 1 DO 
+ FOR j from 0 to set2.length-1 STEP 1 DO
+
+  IF ((set1[i]===set2[j])) THEN
+     sum_sim = sum_sim + set1[i]*2
+ END_IF
+ END_FOR
+ write (sum_sim)
+ END_FOR
+
+ END
+
+
